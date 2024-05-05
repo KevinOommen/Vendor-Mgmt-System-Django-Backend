@@ -1,0 +1,48 @@
+# gitignore for a Django REST project
+# Ignore database files
+*.sqlite3
+
+# Ignore static files
+/static/
+
+# Ignore media files
+/media/
+
+# Ignore virtual environment
+/venv/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore logs
+*.log
+
+# Ignore cache files
+__pycache__/
+
+# Ignore environment variables file
+.env
+
+# Ignore local settings file
+/local_settings.py
+
+# Ignore migration files
+/migrations/
+
+# Ignore secret key file
+/secret_key.txt
+
+# Ignore coverage reports
+.coverage/
+
+# Ignore test database
+/test_db.sqlite3
+
+# Ignore any other sensitive or generated files
+*.secret
+*.key
+*.pem

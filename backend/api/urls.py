@@ -1,7 +1,10 @@
 from django.urls import path
 from .views import VendorListCreateView, VendorRetrieveUpdateDestroyView
+from .views import PurchaseOrderListCreateView, PurchaseOrderRetrieveUpdateDestroyView
 
 urlpatterns = [
-    path('api/vendors/', VendorListCreateView.as_view(), name='vendor-list-create'),
-    path('api/vendors/<int:pk>/', VendorRetrieveUpdateDestroyView.as_view(), name='vendor-retrieve-update-destroy'),
+    path('vendors/', VendorListCreateView.as_view(), name='vendor-list-create'),
+    path('vendors/<int:pk>/', VendorRetrieveUpdateDestroyView.as_view(), name='vendor-retrieve-update-destroy'),
+    path('purchase-orders/', PurchaseOrderListCreateView.as_view(), name='purchase-order-list-create'),
+    path('purchase-orders/<str:pk>/', PurchaseOrderRetrieveUpdateDestroyView.as_view(), name='purchase-order-retrieve-update-destroy'),
 ]
