@@ -1,3 +1,4 @@
+from datetime import timezone
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from rest_framework.response import Response
@@ -42,3 +43,10 @@ class VendorPerformanceMetricsAPIView(generics.RetrieveAPIView):
             'fulfillment_rate': instance.fulfillment_rate,
         }
         return Response(performance_metrics, status=status.HTTP_200_OK)
+class AcknowledgePurchaseOrderAPIView(APIView):
+    def post(self, request, po_id, format=None):
+        purchase_order = get_object_or_404(PurchaseOrder, pk=po_id)
+        purchase_order.acknowledgment_date = timezone.now()
+        purchase_order.save()
+        serializer = PurchaseOrderSerializer(purchase_order)
+        return Response(serializer.data, status=status.HTTP_200_OK)
